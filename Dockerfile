@@ -12,39 +12,27 @@ run add-apt-repository -y ppa:pothosware/framework
 
 run add-apt-repository -y ppa:pothosware/support
 
-run apt-get update
-
-run apt-get install -y pothos-all python3-pothos pothos-python-dev soapysdr-tools osmo-sdr soapysdr-module-osmosdr rtl-sdr soapysdr-module-rtlsdr python3-soapysdr python3-numpy
-
-run wget https://github.com/analogdevicesinc/libiio/releases/download/v0.23/Linux-Ubuntu-20.04-x86_64.tar.gz
-
-run tar -xvf Linux-Ubuntu-20.04-x86_64.tar.gz
-
-run apt-get install -y libaio1 libserialport0
-
-run dpkg -i Linux-Ubuntu-20.04-x86_64/libiio-0.23.g92d6a35-Linux.deb
-
 run add-apt-repository -y ppa:myriadrf/drivers
 
 run apt-get update
 
+run apt-get install -y pothos-all python3-pothos pothos-python-dev soapysdr-tools osmo-sdr soapysdr-module-osmosdr rtl-sdr soapysdr-module-rtlsdr python3-soapysdr python3-numpy
+
+run apt-get install -y libaio1 libserialport0
+
+run wget https://github.com/analogdevicesinc/libiio/releases/download/v0.23/Linux-Ubuntu-20.04-x86_64.tar.gz && tar -xvf Linux-Ubuntu-20.04-x86_64.tar.gz && dpkg -i Linux-Ubuntu-20.04-x86_64/libiio-0.23.g92d6a35-Linux.deb
+
 run apt-get install -y git
 
-run wget https://github.com/analogdevicesinc/libad9361-iio/releases/download/v0.2/ad9361-0.2-Linux.deb
-
-run dpkg -i ad9361-0.2-Linux.deb
+run wget https://github.com/analogdevicesinc/libad9361-iio/releases/download/v0.2/ad9361-0.2-Linux.deb && dpkg -i ad9361-0.2-Linux.deb && rm ad9361-0.2-Linux.deb
 
 run apt-get install -y libzmq3-dev python3-distutils mc aptitude  bash-completion bash nano swig
 
-run git clone https://github.com/pothosware/SoapySDR.git
-
-run cd SoapySDR && mkdir build && cd build && cmake .. && make -j8 && make install
+run git clone https://github.com/pothosware/SoapySDR.git && cd SoapySDR && mkdir build && cd build && cmake .. && make -j8 && make install && cd ../.. && rm -rf SoapySDR
 
 run ldconfig
 
-run git clone https://github.com/pothosware/SoapyPlutoSDR.git
-
-run cd SoapyPlutoSDR && mkdir build && cd build && cmake .. && make -j8 && make install
+run git clone https://github.com/pothosware/SoapyPlutoSDR.git && cd SoapyPlutoSDR && mkdir build && cd build && cmake .. && make -j8 && make install && cd ../.. && rm -rf SoapyPlutoSDR
 
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB_INSTALL_DIR:PATH=lib64 -DLIB_SUFFIX=64 -DSOAPY_SDR_ROOT=/usr
 
@@ -56,11 +44,7 @@ run SoapySDRUtil --find || true
 
 #run SoapySDRUtil --probe="driver=plutosdr,hostname=192.168.2.1"
 
-run git clone https://github.com/srsRAN/srsRAN.git
-
-run cd srsRAN && mkdir build && cd build && cmake ../ && make -j8
-
-run cd srsRAN && cd build && make install
+run git clone https://github.com/srsRAN/srsRAN.git && cd srsRAN && mkdir build && cd build && cmake ../ && make -j8 && make install && cd ../.. && rm -rf srsRAN
 
 run ldconfig
 

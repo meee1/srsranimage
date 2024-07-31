@@ -52,7 +52,7 @@ run PothosUtil --system-info
 
 run SoapySDRUtil --info
 
-run SoapySDRUtil --find
+run SoapySDRUtil --find || true
 
 #run SoapySDRUtil --probe="driver=plutosdr,hostname=192.168.2.1"
 

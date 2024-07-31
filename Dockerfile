@@ -4,7 +4,7 @@ run apt-get update
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-run apt-get install -y build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev wget
+run apt-get install -y build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev wget libusb-1.0-0-dev
 
 run apt-get install -y software-properties-common
 

@@ -42,7 +42,7 @@ run cd SoapySDR && mkdir build && cd build && cmake .. && make -j8 && make insta
 
 run ldconfig
 
-run git clone https://github.com/meee1/SoapyPlutoSDR.git
+run git clone https://github.com/pothosware/SoapyPlutoSDR.git
 
 run cd SoapyPlutoSDR && mkdir build && cd build && cmake .. && make -j8 && make install
 

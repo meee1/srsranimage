@@ -2,7 +2,7 @@ from ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-run apt-get update && apt-get install -y build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev wget libdw-dev libdwarf-dev binutils-dev libusb-1.0-0-dev software-properties-common git && apt-get clean
+run apt-get update && apt-get install -y build-essential cmake gdb libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev wget libdw-dev libdwarf-dev binutils-dev libusb-1.0-0-dev software-properties-common git && apt-get clean
 
 run add-apt-repository -y ppa:pothosware/framework && add-apt-repository -y ppa:pothosware/support && add-apt-repository -y ppa:myriadrf/drivers
 
@@ -14,11 +14,11 @@ run wget https://github.com/analogdevicesinc/libad9361-iio/releases/download/v0.
 
 run apt-get update && apt-get install -y libzmq3-dev python3-distutils mc aptitude bash-completion bash nano swig && apt-get clean
 
-run git clone https://github.com/pothosware/SoapySDR.git && cd SoapySDR && mkdir build && cd build && cmake .. && make -j8 && make install && cd ../.. && rm -rf SoapySDR
+run git clone https://github.com/pothosware/SoapySDR.git && cd SoapySDR && mkdir build && cd build && cmake .. && make -j8 && make install && cd ../..
 
 run ldconfig
 
-run git clone https://github.com/pothosware/SoapyPlutoSDR.git && cd SoapyPlutoSDR && mkdir build && cd build && cmake .. && make -j8 && make install && cd ../.. && rm -rf SoapyPlutoSDR
+run git clone https://github.com/pothosware/SoapyPlutoSDR.git && cd SoapyPlutoSDR && mkdir build && cd build && cmake .. && make -j8 && make install && cd ../..
 
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB_INSTALL_DIR:PATH=lib64 -DLIB_SUFFIX=64 -DSOAPY_SDR_ROOT=/usr
 
@@ -30,7 +30,7 @@ run SoapySDRUtil --find || true
 
 #run SoapySDRUtil --probe="driver=plutosdr,hostname=192.168.2.1"
 
-run git clone https://github.com/srsran/srsRAN_4G.git && cd srsRAN_4G && mkdir build && cd build && cmake ../ && make -j8 && make install && cd ../.. && rm -rf srsRAN_4G
+run git clone https://github.com/srsran/srsRAN_4G.git && cd srsRAN_4G && mkdir build && cd build && cmake ../ -DCMAKE_BUILD_TYPE=Debug && make -j8 && make install && cd ../..
 
 run ldconfig
 
@@ -41,5 +41,3 @@ run srsran_install_configs.sh user
 #./cell_search_nbiot -b 20
 
 #./cell_search -b 20
-
-CMD bash

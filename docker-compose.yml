@@ -1,0 +1,9 @@
+services:
+  srsranimage:
+    build: .
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    cap_add: 
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun

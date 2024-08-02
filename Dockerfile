@@ -6,7 +6,10 @@ run apt-get update && apt-get install -y build-essential cmake gdb libfftw3-dev 
 
 run add-apt-repository -y ppa:pothosware/framework && add-apt-repository -y ppa:pothosware/support && add-apt-repository -y ppa:myriadrf/drivers
 
-run apt-get update && apt-get install -y pothos-all python3-pothos pothos-python-dev soapysdr-tools osmo-sdr soapysdr-module-osmosdr rtl-sdr soapysdr-module-rtlsdr python3-soapysdr python3-numpy libaio1 libserialport0 && apt-get clean
+run apt-get update && apt-get install -y ccache pothos-all python3-pothos pothos-python-dev soapysdr-tools osmo-sdr soapysdr-module-osmosdr rtl-sdr soapysdr-module-rtlsdr python3-soapysdr python3-numpy libaio1 libserialport0 && apt-get clean
+
+ENV CC="ccache gcc"
+ENV CXX="ccache g++"
 
 run wget https://github.com/analogdevicesinc/libiio/releases/download/v0.23/Linux-Ubuntu-20.04-x86_64.tar.gz && tar -xvf Linux-Ubuntu-20.04-x86_64.tar.gz && dpkg -i Linux-Ubuntu-20.04-x86_64/libiio-0.23.g92d6a35-Linux.deb && rm Linux-Ubuntu-20.04-x86_64.tar.gz
 

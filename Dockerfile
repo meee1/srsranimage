@@ -2,7 +2,7 @@ from ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-run apt-get update && apt-get install -y build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev wget libusb-1.0-0-dev software-properties-common git && apt-get clean
+run apt-get update && apt-get install -y build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev wget libdw-dev libdwarf-dev libusb-1.0-0-dev software-properties-common git && apt-get clean
 
 run add-apt-repository -y ppa:pothosware/framework && add-apt-repository -y ppa:pothosware/support && add-apt-repository -y ppa:myriadrf/drivers
 

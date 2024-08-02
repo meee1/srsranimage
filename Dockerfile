@@ -25,7 +25,7 @@ run git clone https://github.com/pothosware/SoapyPlutoSDR.git && cd SoapyPlutoSD
 
 run apt-get update && apt-get install -y libboost-system-dev libboost-test-dev libboost-thread-dev libqwt-qt5-dev qtbase5-dev && apt-get clean
 
-run git clone https://github.com/srsLTE/srsGUI.git && cd srsgui && mkdir build && cd build && cmake ../ && make && make install
+run git clone https://github.com/srsLTE/srsGUI.git && cd srsGUI && mkdir build && cd build && cmake ../ && make && make install
 
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB_INSTALL_DIR:PATH=lib64 -DLIB_SUFFIX=64 -DSOAPY_SDR_ROOT=/usr
 

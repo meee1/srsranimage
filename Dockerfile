@@ -30,7 +30,7 @@ run SoapySDRUtil --find || true
 
 #run SoapySDRUtil --probe="driver=plutosdr,hostname=192.168.2.1"
 
-run git clone https://github.com/srsRAN/srsRAN.git && cd srsRAN && mkdir build && cd build && cmake ../ && make -j8 && make install && cd ../.. && rm -rf srsRAN
+run git clone https://github.com/srsran/srsRAN_4G.git && cd srsRAN_4G && mkdir build && cd build && cmake ../ && make -j8 && make install && cd ../.. && rm -rf srsRAN_4G
 
 run ldconfig
 

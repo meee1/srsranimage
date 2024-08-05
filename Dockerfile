@@ -6,7 +6,7 @@ run apt-get update && apt-get install -y build-essential cmake gdb libfftw3-dev 
 
 run add-apt-repository -y ppa:pothosware/framework && add-apt-repository -y ppa:pothosware/support && add-apt-repository -y ppa:myriadrf/drivers
 
-run apt-get update && apt-get install -y ccache pothos-all python3-pothos pothos-python-dev soapysdr-tools osmo-sdr soapysdr-module-osmosdr rtl-sdr soapysdr-module-rtlsdr python3-soapysdr python3-numpy libaio1 libserialport0 && apt-get clean
+run apt-get update && apt-get install -y valgrind kcachegrind ccache pothos-all python3-pothos pothos-python-dev soapysdr-tools osmo-sdr soapysdr-module-osmosdr rtl-sdr soapysdr-module-rtlsdr python3-soapysdr python3-numpy libaio1 libserialport0 && apt-get clean
 
 ENV CC="ccache gcc"
 ENV CXX="ccache g++"
